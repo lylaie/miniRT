@@ -3,7 +3,10 @@
 
 # include <stdio.h>
 # include <fcntl.h>
-
+# include <unistd.h>
+# include <stdlib.h>
+# include <ctype.h>
+# include <strings.h>
 
 /*
  ** CONSTANTES
@@ -14,6 +17,7 @@
 # define READ_ERR "Reading error"
 # define FILE_ERR "Invalid file"
 # define EXT_ERR "Invalid extension"
+# define PARSE_ERR "Parsing error"
 
 /*
  ** STRUCTURES
@@ -119,6 +123,7 @@ typedef struct  s_param
 {
     int is_R;
     int is_F;
+    int is_A;
 
     t_reso t_R;
     t_amb t_A;
@@ -139,5 +144,11 @@ int     ft_errors(int value);
 */
 
 int     ft_strcmp(char *s1, char *s2);
+int     get_next_line(int fd, char **line);
+void    *ft_memset(void *b, int c, size_t len);
+int     ft_atoi(const char *str);
+int     ft_isdigit(int c);
+int     ft_intlen_base(unsigned int nb, char *base);
+size_t  ft_strlen(const char *str);
 
 #endif
